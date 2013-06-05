@@ -33,8 +33,6 @@ public class MainActivity extends Activity {
 	public void addListenerOnButton() {
 		 
 		login = (Button) findViewById(R.id.login_main);
-		register = (Button) findViewById(R.id.register_main);
- 
 		login.setOnClickListener(new OnClickListener() {
  
 			@Override
@@ -47,6 +45,8 @@ public class MainActivity extends Activity {
 			}
  
 		});
+		
+		register = (Button) findViewById(R.id.register_main);
 		register.setOnClickListener(new OnClickListener() {
 			 
 			@Override

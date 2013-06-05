@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button2"
+        android:layout_alignRight="@+id/register_button"
         android:layout_marginTop="63dp"
         android:ems="10"
         android:hint="username" >
@@ -32,7 +32,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText2"
@@ -55,7 +55,7 @@
         android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/register_button"
         android:layout_alignLeft="@+id/editText2"
         android:ems="10"
         android:hint="password"
