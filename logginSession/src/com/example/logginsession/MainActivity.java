@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 	
 	public void addListenerOnButton() {
 		 
-		login = (Button) findViewById(R.id.login_main);
+		login = (Button) findViewById(R.id.login_button);
 		login.setOnClickListener(new OnClickListener() {
  
 			@Override

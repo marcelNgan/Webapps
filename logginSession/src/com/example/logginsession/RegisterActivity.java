@@ -38,6 +38,14 @@ public class RegisterActivity extends Activity {
 			}
 
 		});
+		String username = findViewById(R.id.editText1).toString();
+		String password = findViewById(R.id.editText3).toString();
+		String confirm = findViewById(R.id.editText3).toString();
+		
+		if (password.equals(confirm)){
+			
+		}
+		
  
 	}
 }
