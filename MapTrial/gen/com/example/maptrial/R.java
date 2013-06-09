@@ -182,7 +182,8 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f050006;
+        public static final int action_settings=0x7f050007;
+        public static final int checkin=0x7f050006;
         public static final int hybrid=0x7f050004;
         public static final int map=0x7f050005;
         public static final int none=0x7f050000;
@@ -208,6 +209,7 @@ containing a value of this type.
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
         public static final int auth_client_requested_by_msg=0x7f060011;
+        public static final int check_in=0x7f060018;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
