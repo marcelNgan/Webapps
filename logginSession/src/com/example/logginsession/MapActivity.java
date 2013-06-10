@@ -1,10 +1,10 @@
-package com.example.maptrial;
+package com.example.logginsession;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.location.Criteria;
@@ -20,14 +20,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends Activity {
+public class MapActivity extends Activity {
   Map<String, LatLng> poiMap = new HashMap<String, LatLng>();
   String [] poiName = new String [4];
   final Context context = this;
-  static final LatLng LONDON = new LatLng(51.50722, -0.12750);
+  final LatLng LONDON = new LatLng(51.50722, -0.12750);
   LatLng myPos;
   private GoogleMap mMap;
   private Button checkInButton;
@@ -37,7 +36,7 @@ public class MainActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    setContentView(R.layout.activity_map);
     mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
         .getMap();
   

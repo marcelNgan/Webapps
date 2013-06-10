@@ -1,11 +1,7 @@
 package com.example.logginsession;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -17,6 +13,7 @@ public class MainActivity extends Activity {
 
 	Button login;
 	Button register;
+	Button map;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +58,20 @@ public class MainActivity extends Activity {
  
 			  Intent register = 
                             new Intent(MainActivity.this, RegisterActivity.class);
+			  MainActivity.this.startActivity(register);
+ 
+			}
+ 
+		});
+		
+		map = (Button) findViewById(R.id.mapShortcut);
+		map.setOnClickListener(new OnClickListener() {
+			 
+			@Override
+			public void onClick(View arg0) {
+ 
+			  Intent register = 
+                            new Intent(MainActivity.this, MapActivity.class);
 			  MainActivity.this.startActivity(register);
  
 			}
