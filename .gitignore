@@ -1,7 +1,6 @@
 logginSession/bin/*
 logginSession/gen/*
 logginSession/*.log
-google_play_services/*
 MapTrial/bin/*
 MapTrial/gen/*
 
