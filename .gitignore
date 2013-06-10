@@ -1,5 +1,4 @@
-﻿logginSession/bin/*
-google_play_services/libproject/google-play-services_lib/bin/classes/com/google/*
+logginSession/bin/*
+logginSession/src/*
 google_play_services/*
-google_play_services/*
-MapTrial/bin/classes/com/*
+MapTrial/*

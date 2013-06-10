@@ -25,7 +25,7 @@ public class RegisterActivity extends Activity {
 		
 		unimplementedPopup = new AlertDialog.Builder(this)
 			.setTitle("Not Implemented")
-			.setMessage("Login has not been implemented")
+			.setMessage("Registration has not been implemented")
 			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {}
 			}).create();

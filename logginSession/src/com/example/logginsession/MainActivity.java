@@ -1,5 +1,8 @@
 package com.example.logginsession;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -21,6 +24,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		addListenerOnButton();
+		
+		PSQL_Connection.sendRequest("jdbc:postgresql://db.doc.ic.ac.uk/films?&ssl=true",
+				"lab","lab",new FilmRequestQuery("SELECT * FROM films"));
+
 	}
 
 	@Override

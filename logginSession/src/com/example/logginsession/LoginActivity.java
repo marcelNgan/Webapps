@@ -19,7 +19,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class LoginActivity extends Activity {
-	
+
 	Button login;
 	AlertDialog unimplementedPopup;
 
@@ -27,29 +27,31 @@ public class LoginActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		addListenerOnButton();
 	}
-	
+
 	public void addListenerOnButton() {
-		 
+
 		unimplementedPopup = new AlertDialog.Builder(this)
 		.setTitle("Not Implemented")
 		.setMessage("Login has not been implemented")
-				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-					}
-				}).create();
+		.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+			}
+		}).create();
 		;
 
 		login = (Button) findViewById(R.id.login_main);
 		login.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+
 				//unimplementedPopup.show();
+
 				String username = findViewById(R.id.editText1).toString();
 				String password = findViewById(R.id.editText2).toString();
-				
+
 				try {
 					doPost(null, null);
 				} catch (IOException e) {
@@ -59,7 +61,7 @@ public class LoginActivity extends Activity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			
+
 			}
 
 		});
@@ -69,13 +71,12 @@ public class LoginActivity extends Activity {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		// response.setContentType("text/html");
-		
-		//PrintWriter out = response.getWriter();
-		//String operation = request.getParameter("op");
-		PrintWriter out = new PrintWriter(System.out);
-		String operation = "";
-		
+
+		response.setContentType("text/html");
+
+		PrintWriter out = response.getWriter();
+		String operation = request.getParameter("op");
+
 		if (operation == null) {
 			out.println("<br>no operation specified</br>");
 			return;
@@ -95,7 +96,7 @@ public class LoginActivity extends Activity {
 			out.println("<h1>exception: " + e + e.getMessage() + "</h1>");
 		}
 	}
-	
-	
+
+
 
 }
