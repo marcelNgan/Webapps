@@ -1,4 +1,7 @@
 logginSession/bin/*
-logginSession/src/*
+logginSession/gen/*
+logginSession/*.log
 google_play_services/*
-MapTrial/*
+MapTrial/bin/*
+MapTrial/gen/*
+

@@ -48,7 +48,7 @@
         android:layout_below="@+id/editText2"
         android:layout_marginTop="22dp"
         android:ems="10"
-        android:hint="password"
+        android:hint="confirm password"
         android:inputType="textPassword" />
 
     <EditText
