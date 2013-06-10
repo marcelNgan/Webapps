@@ -28,13 +28,11 @@ public class MainActivity extends Activity {
   String [] poiName = new String [4];
   final Context context = this;
   static final LatLng LONDON = new LatLng(51.50722, -0.12750);
-  static final LatLng LONDONEYE = new LatLng(51.5033, -0.1197);
-  static final LatLng BUCKINGHAM = new LatLng(51.501, -0.142);
-  static final LatLng WINDSOR = new LatLng(51.4837, -0.6042);
   LatLng myPos;
   private GoogleMap mMap;
   private Button checkInButton;
- 
+  private Button mapButton;
+  private Button achievementButton;
   
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +40,7 @@ public class MainActivity extends Activity {
     setContentView(R.layout.activity_main);
     mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
         .getMap();
-
-    // Move the camera instantly to London with a zoom of 15.
-    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LONDON, 15));
-
-    // Zoom in, animating the camera.
-    mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-    
+  
     initializePOI();
     
     addMarkers();
@@ -63,7 +55,32 @@ public class MainActivity extends Activity {
     	double latitude = location.getLatitude();
     	double longitude = location.getLongitude();
     	myPos = new LatLng (latitude, longitude);
+    	mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPos, 15));
+    } else {
+    	 // Move the camera instantly to London with a zoom of 15.
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LONDON, 15));
     }
+
+    // Zoom in, animating the camera.
+    mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+    
+    this.achievementButton = (Button)this.findViewById(R.id.achievementButton);
+    this.achievementButton.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			finish();
+		}
+	});
+    
+    this.mapButton = (Button)this.findViewById(R.id.mapButton);
+    this.mapButton.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			//nothing happens
+		}
+	});
     
     this.checkInButton = (Button)this.findViewById(R.id.checkin);
     this.checkInButton.setOnClickListener(new OnClickListener() {
@@ -78,8 +95,8 @@ public class MainActivity extends Activity {
 			
 			for(int i =0; i<poiName.length; ++i){
 				LatLng temp = poiMap.get(poiName[i]);
-				if ((Math.abs(myPos.latitude-temp.latitude) < 0.5) &
-						(Math.abs(myPos.longitude-temp.longitude) <0.5)){
+				if ((Math.abs(myPos.latitude-temp.latitude) < 0.005) &
+						(Math.abs(myPos.longitude-temp.longitude) <0.005)){
 					possCheckIn = true;
 					location = poiName[i];
 				}

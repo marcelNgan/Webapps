@@ -2,12 +2,36 @@
 	xmlns:tools="http://schemas.android.com/tools"  
    android:layout_width="match_parent"  
    android:layout_height="match_parent"  
-   tools:context=".MainActivity" >  
+   tools:context=".MainActivity" >
+
    <fragment  
      android:id="@+id/map"  
      android:layout_width="match_parent"  
      android:layout_height="match_parent"  
      class="com.google.android.gms.maps.MapFragment" />
+
+   <View android:id="@+id/strut"
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       android:layout_centerHorizontal="true"
+       android:layout_alignParentTop="true" />
+      
+   <Button
+          android:id="@+id/mapButton"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_alignRight="@id/strut"
+          android:layout_alignParentLeft="true"
+          android:text="@string/map" />
+   
+   <Button
+       android:id="@+id/achievementButton"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@id/strut"
+       android:layout_alignParentRight="true"
+       android:text="@string/achievement" />
+   
    <Button 
        android:id="@+id/checkin"
        android:layout_width="fill_parent"
