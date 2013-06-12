@@ -1,4 +1,9 @@
-package com.example.logginsession;
+package com.example.logginsession.activity;
+
+import com.example.logginsession.R;
+import com.example.logginsession.R.id;
+import com.example.logginsession.R.layout;
+import com.example.logginsession.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;

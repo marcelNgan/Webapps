@@ -1,8 +1,17 @@
-package com.example.logginsession;
+package com.example.logginsession.activity;
+
+import com.example.logginsession.PSQL_Connection;
+import com.example.logginsession.R;
+import com.example.logginsession.StaticData;
+import com.example.logginsession.R.id;
+import com.example.logginsession.R.layout;
+import com.example.logginsession.query.LoginQuery;
+import com.example.logginsession.query.MyQuery;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,18 +20,16 @@ import android.widget.EditText;
 
 
 
-public class LoginActivity extends Activity {
-
-	private final int MIN_PASSWORD_LENGTH = 6;
+public class LoginActivity extends MyActivity {
 	
 	Button login;
 	AlertDialog unimplementedPopup;
 	EditText usernameText;
 	EditText passwordText;
 
-	private AlertDialog userAlphanumPopup;
 	private AlertDialog blankPasswordPopup;
 	private AlertDialog blankUsernamePopup;
+	private AlertDialog invalidLoginPopup;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +63,8 @@ public class LoginActivity extends Activity {
 					return;
 				}
 				
-				System.err.println("!!!!!!!!!!!!!!!!    "+password);
 				PSQL_Connection.sendRequest("db.doc.ic.ac.uk/g1227125_u","g1227125_u","RtoxBd22NV",
-						new LoginQuery("SELECT user_id FROM users WHERE user_name='"+
+						new LoginQuery(LoginActivity.this,"SELECT user_id FROM users WHERE user_name='"+
 								username+"' AND user_password='"+password +"'" ));
 				
 			}
@@ -84,7 +90,7 @@ public class LoginActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which) {
 			}
 		}).create();
-		;		
+			
 		blankPasswordPopup = new AlertDialog.Builder(this)
 		.setTitle("Password Missing")
 		.setMessage("The password field has been left blank")
@@ -92,8 +98,32 @@ public class LoginActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which) {
 			}
 		}).create();
+		
+		invalidLoginPopup = new AlertDialog.Builder(this)
+		.setTitle("Could not log in")
+		.setMessage("Please check you have entered your username and password correctly")
+		.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+			}
+		}).create();
+	}
 
-		;
+	@Override
+	public void handleQuery(MyQuery query) {
+		if (query==null) return;
+		if (query instanceof LoginQuery) {
+			LoginQuery q = (LoginQuery)query;
+			if (q.numResults()==0) {
+				invalidLoginPopup.show();
+				return;
+			}
+			StaticData.setLogin(q.getLogin());
+
+			Intent register = 
+					new Intent(LoginActivity.this, MapActivity.class);
+			LoginActivity.this.startActivity(register);
+
+		}
 	}
 
 

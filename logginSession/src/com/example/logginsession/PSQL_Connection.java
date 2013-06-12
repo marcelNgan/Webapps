@@ -6,10 +6,17 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import com.example.logginsession.query.MyQuery;
+
 import android.os.AsyncTask;
+import android.os.Looper;
 
 public class PSQL_Connection extends AsyncTask<MyRequest, Void, Boolean> {
 
+	public PSQL_Connection(){
+		Looper.prepare();
+	}
+	
 	public void execute(MyRequest request) {
 		execute(new MyRequest[]{request});
 	}
@@ -47,9 +54,11 @@ public class PSQL_Connection extends AsyncTask<MyRequest, Void, Boolean> {
 
             rs = stmt.executeQuery(query.getQuery());
             while ( rs.next() ) {
-                query.parseRequest(rs);
+                query.parseResult(rs);
             }
-
+            
+            query.finish();
+            query.notifyActivity();
             conn.close();
         } catch (Exception e) {
             System.err.println("Exception: " + e + "\n" + e.getMessage() );

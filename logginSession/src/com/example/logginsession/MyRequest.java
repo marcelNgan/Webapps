@@ -1,20 +1,22 @@
 package com.example.logginsession;
 
+import com.example.logginsession.query.MyQuery;
+
 public class MyRequest {
 
 	private String url;
 	private String user;
 	private String pass;
 	private MyQuery query;
-	
+
 	public MyRequest(String url, String user, String pass, MyQuery query) {
 		this.url=url;
 		this.user=user;
 		this.pass=pass;
 		this.query=query;
-		
+
 	}
-	
+
 	public MyRequest() {
 		// TODO Auto-generated constructor stub
 	}

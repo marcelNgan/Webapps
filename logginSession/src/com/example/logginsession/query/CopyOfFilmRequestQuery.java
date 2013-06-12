@@ -1,16 +1,19 @@
-package com.example.logginsession;
+package com.example.logginsession.query;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.example.logginsession.activity.MyActivity;
+
 public class CopyOfFilmRequestQuery extends MyQuery {
 
-	public CopyOfFilmRequestQuery(String query) {
-		super(query);
+
+	public CopyOfFilmRequestQuery(MyActivity activity, String query) {
+		super(activity, query);
 	}
 
 	@Override
-	public void parseRequest(ResultSet rs) throws SQLException {
+	public void parseResult(ResultSet rs) throws SQLException {
 		String title = rs.getString("title");
         String director = rs.getString("director");
         String origin = rs.getString("origin");

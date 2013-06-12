@@ -1,4 +1,4 @@
-package com.example.logginsession;
+package com.example.logginsession.activity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +16,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.example.logginsession.R;
+import com.example.logginsession.R.id;
+import com.example.logginsession.R.layout;
+import com.example.logginsession.R.menu;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
