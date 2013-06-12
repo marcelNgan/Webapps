@@ -38,7 +38,7 @@ public class PSQL_Connection extends AsyncTask<MyRequest, Void, Boolean> {
 
         try {
         	
-        	String uri = url + "&sslfactory=org.postgresql.ssl.NonValidatingFactory" ;
+        	String uri = "jdbc:postgresql://" + url + "?&ssl=true" + "&sslfactory=org.postgresql.ssl.NonValidatingFactory" ;
         	
         	Connection conn = DriverManager.getConnection (	uri, user, pass );
 

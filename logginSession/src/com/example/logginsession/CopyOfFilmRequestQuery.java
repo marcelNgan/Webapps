@@ -3,9 +3,9 @@ package com.example.logginsession;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class FilmRequestQuery extends MyQuery {
+public class CopyOfFilmRequestQuery extends MyQuery {
 
-	public FilmRequestQuery(String query) {
+	public CopyOfFilmRequestQuery(String query) {
 		super(query);
 	}
 

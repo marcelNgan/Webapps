@@ -22,8 +22,8 @@ public class MainActivity extends Activity {
 		
 		addListenerOnButton();
 		
-		PSQL_Connection.sendRequest("jdbc:postgresql://db.doc.ic.ac.uk/films?&ssl=true",
-				"lab","lab",new FilmRequestQuery("SELECT * FROM films"));
+		/*PSQL_Connection.sendRequest("jdbc:postgresql://db.doc.ic.ac.uk/films?&ssl=true",
+				"lab","lab",new FilmRequestQuery("SELECT * FROM films"));*/
 
 	}
 
