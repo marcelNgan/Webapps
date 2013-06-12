@@ -30,7 +30,6 @@ public class MapActivity extends Activity {
   LatLng myPos;
   private GoogleMap mMap;
   private Button checkInButton;
-  private Button mapButton;
   private Button achievementButton;
   
   @Override
@@ -69,15 +68,6 @@ public class MapActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			finish();
-		}
-	});
-    
-    this.mapButton = (Button)this.findViewById(R.id.mapButton);
-    this.mapButton.setOnClickListener(new OnClickListener() {
-		
-		@Override
-		public void onClick(View v) {
-			//nothing happens
 		}
 	});
     
