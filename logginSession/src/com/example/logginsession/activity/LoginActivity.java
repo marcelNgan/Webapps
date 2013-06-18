@@ -108,7 +108,6 @@ public class LoginActivity extends MyActivity {
 		}).create();
 	}
 
-	@Override
 	public void handleQuery(MyQuery query) {
 		if (query==null) return;
 		if (query instanceof LoginQuery) {

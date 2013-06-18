@@ -12,10 +12,6 @@ import android.os.AsyncTask;
 import android.os.Looper;
 
 public class PSQL_Connection extends AsyncTask<MyRequest, Void, Boolean> {
-
-	public PSQL_Connection(){
-		Looper.prepare();
-	}
 	
 	public void execute(MyRequest request) {
 		execute(new MyRequest[]{request});
